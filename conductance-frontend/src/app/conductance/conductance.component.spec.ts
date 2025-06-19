@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Conductance } from './conductance';
+import { ConductanceComponent  } from './conductance.component';
 
 describe('Conductance', () => {
-  let component: Conductance;
-  let fixture: ComponentFixture<Conductance>;
+  let component: ConductanceComponent ;
+  let fixture: ComponentFixture<ConductanceComponent >;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Conductance]
+      declarations: [ConductanceComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Conductance);
+    fixture = TestBed.createComponent(ConductanceComponent );
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

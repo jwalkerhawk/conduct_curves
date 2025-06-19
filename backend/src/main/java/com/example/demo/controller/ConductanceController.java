@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/conductance")
+@RequestMapping("/api/conductance")
 public class ConductanceController {
 
     @Autowired

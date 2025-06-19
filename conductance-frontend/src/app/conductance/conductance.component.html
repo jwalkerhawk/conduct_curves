@@ -1,0 +1,46 @@
+<div style="max-width: 600px; margin: 40px auto; font-family: Arial, sans-serif;">
+  <h2>⚡ Conductance Calculator</h2>
+
+  <form (submit)="onSubmit(); $event.preventDefault()" style="margin-top: 20px;">
+    <label for="voltage"><strong>Voltage (comma-separated):</strong></label><br />
+    <input id="voltage" type="text" [(ngModel)]="voltage" name="voltage"
+           placeholder="e.g. 10, 20, 30"
+           style="width: 100%; padding: 8px; margin: 8px 0;" />
+
+    <label for="current"><strong>Current (comma-separated):</strong></label><br />
+    <input id="current" type="text" [(ngModel)]="current" name="current"
+           placeholder="e.g. 5, 10, 15"
+           style="width: 100%; padding: 8px; margin: 8px 0;" />
+
+    <button type="submit"
+            style="padding: 10px 20px; background-color: #007acc; color: white; border: none; cursor: pointer;">
+      Calculate
+    </button>
+  </form>
+
+  <div *ngIf="result" style="margin-top: 30px; background-color: #f9f9f9; padding: 20px; border-radius: 8px;">
+    <h3>🔍 Results:</h3>
+    <p><strong>Conductance Values:</strong></p>
+<ul>
+  <li *ngFor="let item of result.conductance_Siemens">
+    Voltage: {{ item.voltage }} V → Conductance: {{ item.value }} S
+  </li>
+</ul>
+
+<p><strong>Reversal Potential:</strong> {{ result.reversalPotential_mV }} mV</p>
+  </div>
+</div>
+
+<div style="margin-top: 40px;">
+  <h3>📉 Conductance Chart</h3>
+ <apx-chart 
+  *ngIf="chartSeries.length"
+  [series]="chartSeries"
+  [chart]="chartOptions.chart"
+  [stroke]="chartOptions.stroke"
+  [title]="chartOptions.title"
+  [xaxis]="chartOptions.xaxis"
+  [yaxis]="chartOptions.yaxis">
+</apx-chart>
+</div>
+
